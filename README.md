@@ -1,1 +1,2 @@
-# ko-sacrebleu
+# Guidance to Pre-tokenization for SacreBLEU: Meta-Evaluation in Korean
+This repository provides codes and datasets for the NMT evaluation for the following publication, "Guidance to Pre-tokenization for SacreBLEU: Meta-Evaluation in Korean" by Ahrii Kim and Jinhyeon Kim, submitted at Preprints.org and HumEval 2022. 
