@@ -1,19 +1,11 @@
 import numpy as np
 import scipy.stats as sts
 
-
-class Metric:
-    def __init__(self, name):
-        self.name = 'sacre' + name.title()
-        
-    def getName(self):
-        return self.name[5:]
     
     
 class Correlation:
-    def __init__(self, frame, metric):
+    def __init__(self, frame):
         self.frame = frame
-        self.metric = metric
     
     
     def to_array(self, col):
@@ -35,10 +27,7 @@ class Correlation:
         
         assert 'Human' in self.frame.columns, 'Absent: "Human" scores'
         
-        partial_frame = self.frame.loc[:, [col for col in self.frame.columns \
-                                        if col.startswith(self.metric.name) or col == 'Human']]
-        
-        result = partial_frame.corr('pearson')['Human']
+        result = self.frame.corr('pearson')['Human']
         values = [v for _, v in result.items()]
         
         sortedV = np.argsort(values)[::-1]
@@ -50,7 +39,6 @@ class Correlation:
     
     def rank_cluster(self):
         """ Rank cluster of candidates """
-        
         candidates = self.column_by_Pearson()
         num_col = len(candidates)
         
@@ -59,9 +47,9 @@ class Correlation:
         cluster = np.zeros(num_col).astype(int)
         
         for i in range(num_col-1):
-            if all(pairwise[i, i+1:]) < 0.05:
+            if all(pairwise[i, i+1:] < 0.05):
                 cluster[i+1:]+=1
-                
+             
         final_result = list(zip(candidates, cluster))
         
         return final_result
