@@ -24,7 +24,6 @@ class Correlation:
     
     def column_by_Pearson(self):
         """ Columns ranked by Pearson correlation to Human DA """
-        
         assert 'Human' in self.frame.columns, 'Absent: "Human" scores'
         
         result = self.frame.corr('pearson')['Human']

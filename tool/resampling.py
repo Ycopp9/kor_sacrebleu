@@ -26,7 +26,6 @@ class Resampling:
     def pop_index(self) -> list:
         """ 1. Select #m from the total samples
             2. Select #n from #m """
-        
         round_1 = self.pop(self.sample-1, self.m)
         round_2 = self.pop(round_1, self.n)
         return round_2
@@ -34,7 +33,6 @@ class Resampling:
         
     def selectFrame(self, sample_idx:list):
         """ A partial dataframe of selected indexes """
-        
         sample_df = pd.DataFrame(columns=self.frame.columns)
         
         for i, idx in enumerate(sample_idx):
