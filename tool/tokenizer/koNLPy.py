@@ -11,14 +11,14 @@ class KoNLPy(BaseTokenizer):
         self.tokenizers = {'kkma': Kkma, 'okt': Okt, 'mecab': Mecab,
                           'komoran': Komoran, 'hannanum': Hannanum}
         
-        if tokenizer:
-            if tokenizer not in self.tokenizers.keys():
-                raise ValueError(msg['WrongTokenizerName'])
+        if tokenizer not in self.tokenizers.keys():
+            raise ValueError(msg['WrongTokenizerName'])
         self.tokenizer = self.tokenizers[tokenizer]
         
         
     def tokenize(self, sentence:str) -> list:
         """ morpheme-level tokenization """
+        
         return self.tokenizer().morphs(sentence)
     
     def split_sentence(self, text:str) -> list:
