@@ -4,6 +4,13 @@ import scipy.stats as sts
     
     
 class Correlation:
+    """
+    Given a dataframe of automatic metric scores of candidates along with human DA scores,
+    it computes the Pearson correlation coefficient (by default),
+    and make a cluster of ranks of the candidates with the help of Ranksums Test,
+    where the p value of any two candidates bigger than 0.05 is regarded a tie rank.    
+    """
+    
     def __init__(self, frame):
         self.frame = frame
     

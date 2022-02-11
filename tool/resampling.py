@@ -11,6 +11,16 @@ from .correlation import Correlation
 
 
 class Resampling:
+    """
+    Given a dataframe, it realizes Bootstrap Resampling.
+    From the given sample (the size of the dataframe), it performs three random selections:
+    i) #m samples from the total sample
+    ii) #n samples from the #m
+    iii) #n samples from the #n while simultaneously iterating #iteration times.
+    
+    The final result is an average of the accumulated rankings on every 100 iterations. 
+    """
+    
     def __init__(self, frame, m, n, iteration):
         self.frame = frame
         self.m = m

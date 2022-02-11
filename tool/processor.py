@@ -5,7 +5,7 @@ import numpy as np
 
 
 class FileProcessor:
-    
+
     def __init__(self, folder):
         self.folder = folder
         self.basis = 'adequacy_zscore.txt'
