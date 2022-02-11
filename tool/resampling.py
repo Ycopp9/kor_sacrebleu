@@ -32,17 +32,17 @@ class Resampling:
         return np.random.choice(bag, size)
     
     
-    def pop_index(self) -> list:
-        """ 1. Select #m from the total samples
-            2. Select #n from #m """
+    def pop_twice(self) -> list:
+        """ Select #m from the total samples ->  #n from #m """
         round_1 = self.pop(self.sample-1, self.m)
         round_2 = self.pop(round_1, self.n)
         return round_2
         
         
-    def selectFrame(self, sample_idx:list):
+    def selectFrame(self):
         """ A partial dataframe of selected indexes """
         sample_df = pd.DataFrame(columns=self.frame.columns)
+        sample_idx = self.pop(self.pop_twice(), self.n)
         
         for i, idx in enumerate(sample_idx):
             assert idx < len(self.frame), "Error: index out of range"
@@ -52,12 +52,10 @@ class Resampling:
     
     def bootstrapping(self):
         """ Select #n on every iteration, and measure Pearson """
-        pops = self.pop_index()
         zeros = OrderedDict((col, 0) for col in self.frame.columns)
         
         for i in range(1, self.iteration+1):
-            round_3 = self.pop(pops, self.n)
-            correlation = Correlation(self.selectFrame(round_3))
+            correlation = Correlation(self.selectFrame())
             ranking = correlation.rank_cluster()
             
             for k, v in ranking:
