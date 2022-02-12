@@ -5,7 +5,7 @@ from konlpy.tag import *
 
 
 
-_TOKENIZERS = ['Kkma', 'Okt', 'Mecab', 'Komoran','Hannanum']
+_TOKENIZERS = ['Kkma', 'Okt', 'Mecab', 'Komoran', 'Hannanum']
 TOKENIZER_DEFAULT = _TOKENIZERS[2]
 
 MSG = {'WrongTokenizerName':'KoNLPy does not support such tokenizer!',
@@ -32,7 +32,7 @@ class KoNLPy(BaseTokenizer):
     
     
     def split_sentence(self, text:str) -> list:
-        assert self.tokenizers['kkma'] == self.tokenizer, MSG['KkmaOnly']
+        assert self.name.title() == _TOKENIZERS[0], MSG['KkmaOnly']
         return self.tokenizer.sentences(text)
     
     
