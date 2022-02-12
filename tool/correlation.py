@@ -19,7 +19,7 @@ class Correlation:
         return np.array((self.frame[col]), dtype=np.float64)
     
     
-    def ranksums_test(self, col1, col2): 
+    def ranksums_test(self, col1: str, col2: str) -> float: 
         """ Ranksum test between col_A and col_B """
         if col1 == col2:
             return -1

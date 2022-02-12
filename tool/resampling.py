@@ -1,9 +1,9 @@
 import random
+from typing import List
 from collections import OrderedDict
 
 import numpy as np
 import pandas as pd
-
 np.random.seed(42)
 
 from .correlation import Correlation
@@ -20,7 +20,7 @@ class Resampling:
     The final result is an average of the accumulated rankings on every 100 iterations. 
     """
     
-    def __init__(self, frame, m, n, iteration):
+    def __init__(self, frame: pd.DataFrame, m: int, n: int, iteration: int):
         self.frame = frame
         self.m = m
         self.n = n
@@ -28,11 +28,11 @@ class Resampling:
         self.sample = len(self.frame) # 7727
         
         
-    def pop(self, bag, size):
-        return np.random.choice(bag, size)
+    def pop(self, bag: List, sample: int) -> List:
+        return np.random.choice(bag, sample)
     
     
-    def pop_twice(self) -> list:
+    def pop_twice(self) -> List:
         """ Select #m from the total samples ->  #n from #m """
         round_1 = self.pop(self.sample-1, self.m)
         round_2 = self.pop(round_1, self.n)
@@ -62,7 +62,7 @@ class Resampling:
             yield i, sorted(zeros.items(), key=lambda x: x[1])
         
 
-    def bootstrap_resampling(self, every=100):
+    def bootstrap_resampling(self, every: int = 100) -> pd.DataFrame:
         """ Output a result on every # iterations """
         result_frame = pd.DataFrame(columns=self.frame.columns)
         

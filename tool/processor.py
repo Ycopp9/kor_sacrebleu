@@ -1,4 +1,5 @@
 import os
+from typing import List, Sequence, Dict
 
 import pandas as pd
 import numpy as np
@@ -6,7 +7,7 @@ import numpy as np
 
 class FileProcessor:
 
-    def __init__(self, folder):
+    def __init__(self, folder: str):
         self.folder = folder
         self.basis = 'adequacy_zscore.txt'
         
@@ -16,7 +17,7 @@ class FileProcessor:
         return self.openFile(os.path.join('./data/humanDA', self.basis))
     
     
-    def openFile(self, file_path):
+    def openFile(self, file_path: str) -> List:
         """ Open one .txt file """
         with open(file_path) as f:
             data = [line.strip() for line in f.readlines()]    
@@ -24,7 +25,7 @@ class FileProcessor:
         return data
     
         
-    def openFiles(self, ending='.txt'):
+    def openFiles(self, ending='.txt') -> Dict:
         """ Open multiple .txt files """
         score_dict = dict()
         for file in os.listdir(self.folder):
@@ -43,14 +44,14 @@ class FileProcessor:
         return df.astype(np.float64).round(4)
     
     
-    def selectFrame(self, metric):
+    def selectFrame(self, metric: str):
         """ Select a dataframe of a certain metric """
         frame = self.makeFrame()
         return frame.loc[:, [col for col in frame.columns \
                                         if col.startswith('sacre'+metric.title()) or col == 'Human']]
     
     
-    def write(self, text, file_path):
+    def write(self, text: List, file_path: str):
         """ Write a file out """
         with open(file_path, 'w') as f:
             for line in text:

@@ -1,4 +1,3 @@
-from konlpy.tag import *
 from .base import BaseTokenizer
 
 
@@ -8,11 +7,17 @@ class KoNLPy(BaseTokenizer):
           'KkmaOnly':'Only possible with Kkma!'}
 
     def __init__(self, tokenizer):
+        try:
+            from konlpy.tag import *
+        except(ImportError):
+            raise ImportError(
+                "\n\nPlease install KoNLPy library for KoNLPy tokenization:"
+            )            
         self.tokenizers = {'kkma': Kkma, 'okt': Okt, 'mecab': Mecab,
                           'komoran': Komoran, 'hannanum': Hannanum}
-        
         if tokenizer not in self.tokenizers.keys():
             raise ValueError(msg['WrongTokenizerName'])
+            
         self.tokenizer = self.tokenizers[tokenizer]
         
         
