@@ -21,7 +21,6 @@ class FileProcessor:
         with open(file_path) as f:
             data = [line.strip() for line in f.readlines()]    
         #print('Toal: {} sentences'.format(len(data)))
-        
         return data
     
         
@@ -41,7 +40,6 @@ class FileProcessor:
         """ Make a dataframe of metric scores with human DA """
         df = pd.DataFrame(self.openFiles())
         df['Human'] = self.human_score
-        
         return df.astype(np.float64).round(4)
     
     
@@ -52,10 +50,8 @@ class FileProcessor:
                                         if col.startswith('sacre'+metric.title()) or col == 'Human']]
     
     
-    
     def write(self, text, file_path):
         """ Write a file out """
-        
         with open(file_path, 'w') as f:
             for line in text:
                 f.write(str(line)+'\n')

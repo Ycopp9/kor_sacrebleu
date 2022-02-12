@@ -18,12 +18,13 @@ class KoNLPy(BaseTokenizer):
         
     def tokenize(self, sentence:str) -> list:
         """ morpheme-level tokenization """
-        
         return self.tokenizer().morphs(sentence)
+    
     
     def split_sentence(self, text:str) -> list:
         assert self.tokenizers['kkma'] == self.tokenizer, msg['KkmaOnly']
         return self.tokenizer().sentences(text)
+    
     
     def __call__(self):
         print('Tokenizer: ', self.tokenizer)

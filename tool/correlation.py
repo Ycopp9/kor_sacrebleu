@@ -21,7 +21,6 @@ class Correlation:
     
     def ranksums_test(self, col1, col2): 
         """ Ranksum test between col_A and col_B """
-        
         if col1 == col2:
             return -1
         
@@ -56,7 +55,5 @@ class Correlation:
             if all(pairwise[i, i+1:] < 0.05):
                 cluster[i+1:]+=1
              
-        final_result = list(zip(candidates, cluster))
-        
-        return final_result
+        return list(zip(candidates, cluster))
 

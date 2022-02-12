@@ -57,10 +57,8 @@ class Resampling:
         for i in range(1, self.iteration+1):
             correlation = Correlation(self.selectFrame())
             ranking = correlation.rank_cluster()
-            
             for k, v in ranking:
-                zeros[k] += v
-                    
+                zeros[k] += v       
             yield i, sorted(zeros.items(), key=lambda x: x[1])
         
 
@@ -71,6 +69,5 @@ class Resampling:
         for i, result in self.bootstrapping():
             if i%every == 0:
                 for k, v in result:
-                    result_frame.loc[i, k] = round((v/i), 3)
-                
+                    result_frame.loc[i, k] = round((v/i), 3)        
         return result_frame

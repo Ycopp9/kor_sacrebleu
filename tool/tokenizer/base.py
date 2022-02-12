@@ -12,5 +12,4 @@ class BaseTokenizer:
     
     def toCharacter(self, text):
         """ character-level tokenization """
-        
         return [char for char in text if char != ' ']
