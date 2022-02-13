@@ -1,4 +1,4 @@
-from baseSacre import BaseSacre
+from .baseSacre import BaseSacre
 
 
 class SacreBLEU(BaseSacre):

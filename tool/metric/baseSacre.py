@@ -1,5 +1,5 @@
 import sacrebleu
-from base import Metric
+from .base import Metric
 from typing import Sequence, Optional
 
 
