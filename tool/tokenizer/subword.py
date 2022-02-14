@@ -1,4 +1,5 @@
 from .base import BaseTokenizer
+from jamo import h2j, j2hcj
 
 
 class SPM(BaseTokenizer):
@@ -10,8 +11,21 @@ class SPM(BaseTokenizer):
     
 
 class Jamo(BaseTokenizer):
-    def __init__(self):
-        pass
+    def __init__(self,
+                 jamo_split: bool = False):
+        try:
+            from jamo import h2j, j2hcj
+        except:
+            ImportError
+            print("!pip install jamo (https://pypi.org/project/jamo/)")
+            
+        # if True, all tokens are given as a token
+        # if False, a string boundary remains at word
+        self.jamo_split = jamo_split    
+        
     
-    def tokenize():
-        pass
+    def tokenize(self, text):
+        text = j2hcj(h2j(text))
+        if self.jamo_split:
+            return [token for token in text]
+        return text.split()
