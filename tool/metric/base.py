@@ -20,3 +20,6 @@ class Metric:
             self.references = [self.references]
             
         return self.get_method(method_name)(self.hypothesis, self.references)
+    
+    def normalize_score(self, score):
+        return

@@ -20,8 +20,8 @@ class KoNLPy(BaseTokenizer):
         if name is None:
             the_tokenizer = TOKENIZER_DEFAULT
         else:
-            assert name in _TOKENIZERS, MSG['WrongTokenizerName'] 
-            the_tokenizer = name
+            assert name.title() in _TOKENIZERS, MSG['WrongTokenizerName'] 
+            the_tokenizer = name.title()
 
         self.tokenizer = get_tokenizer(the_tokenizer)()
         

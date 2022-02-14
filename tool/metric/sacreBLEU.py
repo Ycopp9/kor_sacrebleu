@@ -33,7 +33,8 @@ class SacreBLEU(Metric):
     def get_score(self, sys_level=False) -> float:
         if sys_level:
             return super().get_score(method_name=self.method_corpus,
-                                    corpus_level = True) 
+                                    corpus_level=True) 
         else:
             return super().get_score(method_name=self.method_sentence,
                                  corpus_level=False)
+    
