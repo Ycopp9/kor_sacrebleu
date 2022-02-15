@@ -14,7 +14,7 @@ This repository provides data sets for MT evaluation run in the following public
 |Evaluation Scores|Human *Adequacy & Fluency* scores|
 ||Automatic Evaluation (segment & corpus level)|
 
-### Tool
+### Tools
 - Tokenizers
   - [KoNLPy](https://konlpy.org/ko/latest/) (Park and Cho, 2014)
   - [Kiwi](https://github.com/bab2min/Kiwi)
