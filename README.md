@@ -3,7 +3,7 @@
 <img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat-square&logo=Kakao&logoColor=black"/></a>
 <img src="https://img.shields.io/apm/l/vim-mode"/></a>
 
-This repository provides data sets and codes for MT evaluation employed in the given publication, written by Ahrii Kim and Jinhyeon Kim and submitted at [Preprints.org](https://www.preprints.org/manuscript/202201.0018/v1) and [HumEval 2022]().
+This repository provides data sets and codes for MT evaluation employed in the given publication, written by **Ahrii Kim** and **Jinhyeon Kim** and submitted at [Preprints.org](https://www.preprints.org/manuscript/202201.0018/v1) and [HumEval 2022]().
 
 ---
 ### About
