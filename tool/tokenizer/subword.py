@@ -19,7 +19,7 @@ class Jamo(BaseTokenizer):
             ImportError
             print("!pip install jamo (https://pypi.org/project/jamo/)")
             
-        # if True, all tokens are given as a token
+        # if True, all jamos are given as a seperate token
         # if False, a string boundary remains at word
         self.jamo_split = jamo_split    
         
