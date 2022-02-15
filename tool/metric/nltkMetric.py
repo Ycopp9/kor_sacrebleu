@@ -26,6 +26,7 @@ class NLTK(Metric):
         self.smooth_method = smooth_method
         self.smoothing_function = None
         if self.smooth_method:
+            # method1 by Chen Cherry
             self.smoothing_function = self.tokenizer.SmoothingFunction().method1
            
         
