@@ -16,13 +16,13 @@ This repository provides data sets for MT evaluation run in the following public
 
 ### Tool
 - Tokenizers
-  - KoNLPy
-  - Kiwi
-  - Khaiii
-  - Jamo
-  - Sentencepiece
+  - [KoNLPy](https://konlpy.org/ko/latest/)(Park and Cho, 2014)
+  - [Kiwi](https://github.com/bab2min/Kiwi)
+  - [Khaiii](https://github.com/kakao/khaiii)
+  - [Jamo](https://pypi.org/project/jamo/)
+  - [Sentencepiece](https://github.com/google/sentencepiece)
 - Metrics
-  - SacreBLEU: BLEU, TER, CHRF
-  - NLTK BLEU, GLEU, NIST, RIBES
-  - EED
-  - CharacTER 
+  - [SacreBLEU](https://github.com/mjpost/sacrebleu)(Post, 2018): BLEU, TER, CHRF 
+  - [NLTK BLEU, GLEU, NIST, RIBES]()
+  - EED (Stanchev et al., 2019)
+  - CharacTER (Wang et al., 2016)
