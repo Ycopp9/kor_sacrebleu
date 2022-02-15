@@ -6,6 +6,12 @@
 This repository provides data sets and codes for MT evaluation in the given publication written by Ahrii Kim and Jinhyeon Kim, submitted at [Preprints.org](https://www.preprints.org/manuscript/202201.0018/v1) and [HumEval 2022]().
 
 ---
+### About
+SacreBLEU, by incorporating a text normalizing step in the pipeline, has been well-received as an automatic evaluation metric in recent years. With agglutinative languages such as Korean, however, the metric cannot provide a conceivable result without the help of customized pre-tokenization. In this regard, this paper endeavors to examine the influence of diversified pre-tokenization schemes –word, morpheme, character, and subword– on the aforementioned metric by performing meta-evaluation with manually-constructed into-Korean human evaluation data.
+
+Our empirical study demonstrates that the correlation of SacreBLEU, and other homogeneous metrics as an extension, vacillates greatly by the token type. The reliability of the metric even deteriorates due to some tokenization, and **MeCab** is one of its culprits. Guiding through the proper usage of tokenizer for each metric, we stress the significance of **Kiwi** as the most reliable Korean tokenizer and the insignificance of the subword level, **Jamo**.
+
+---
 ### Data Set
 |Type|Detail|
 |---|---|
@@ -14,7 +20,8 @@ This repository provides data sets and codes for MT evaluation in the given publ
 |Evaluation Scores|Human *Adequacy & Fluency* scores|
 ||Automatic Evaluation (segment & corpus level)|
 
-### Tools
+
+### Toolkit
 - Tokenizers
   - [KoNLPy](https://konlpy.org/ko/latest/) (Park and Cho, 2014)
   - [Kiwi](https://github.com/bab2min/Kiwi)
