@@ -1,5 +1,6 @@
 from .base import BaseTokenizer
 from jamo import h2j, j2hcj
+import os
 
 
 class SPM(BaseTokenizer):
