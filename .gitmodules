@@ -1,3 +1,6 @@
 [submodule "ExtendedEditDistance"]
 	path = ExtendedEditDistance
 	url = https://github.com/rwth-i6/ExtendedEditDistance
+[submodule "CharacTER"]
+	path = CharacTER
+	url = https://github.com/rwth-i6/CharacTER.git
