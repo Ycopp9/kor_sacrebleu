@@ -1,0 +1,3 @@
+[submodule "ExtendedEditDistance"]
+	path = ExtendedEditDistance
+	url = https://github.com/rwth-i6/ExtendedEditDistance
