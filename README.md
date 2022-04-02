@@ -76,14 +76,14 @@ The following two metrics are copied from the original libraries. You can test t
 
 ```sh
 [EED]
-$ python3 ExtendedEditDistance/EED.py \
-        -ref data/ref_example.txt \
-        -hyp data/hyp_example.txt
+$ python3 ./tool/metric/ExtendedEditDistance/EED.py \
+                -ref data/ref_example.txt \
+                -hyp data/hyp_example.txt
 
 [CharacTER]
-$ python3 CharacTER/CharacTER.py \
-        -r data/ref_example.txt \
-        -o data/hyp_example.txt
+$ python3 ./tool/metric/CharacTER/CharacTER.py \
+                -r data/ref_example.txt \
+                -o data/hyp_example.txt
 ```
 
 
@@ -94,3 +94,6 @@ $ python3 CharacTER/CharacTER.py \
         booktitle={Proceedings of the Workshop on Human Evaluation of NLP Systems (HumEval)}
         year={2022}
     }
+    
+## License
+Apache License Version 2.0
