@@ -9,7 +9,8 @@ class SacreBLEU(Metric):
                 force: bool = False,
                 smooth_method: str = 'exp',
                 smooth_value: Optional[float] = None,
-                effective_order: bool = False):
+                effective_order: bool = False,
+                ):
         super().__init__()
         
         assert name.lower() in NAME, 'Metric not available!'
