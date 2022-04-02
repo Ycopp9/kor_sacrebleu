@@ -9,7 +9,7 @@ This repository provides data sets and codes for MT evaluation employed in the g
 ### About
 SacreBLEU, by incorporating a text normalizing step in the pipeline, has been well-received as an automatic evaluation metric in recent years. With agglutinative languages such as Korean, however, the metric cannot provide a conceivable result without the help of customized pre-tokenization. In this regard, this paper endeavors to examine the influence of diversified pre-tokenization schemes –word, morpheme, character, and subword– on the aforementioned metric by performing meta-evaluation with manually-constructed into-Korean human evaluation data.
 
-Our empirical study demonstrates that the correlation of SacreBLEU, and other homogeneous metrics as an extension, vacillates greatly by the token type. The reliability of the metric even deteriorates due to some tokenization, and **MeCab** is one of its culprits. Guiding through the proper usage of the tokenizer for each metric, we stress the significance of **Kiwi** as the most reliable Korean tokenizer and the insignificance of the subword level, **Jamo**, in MT evaluation.
+Our empirical study demonstrates that the correlation of SacreBLEU, and other homogeneous metrics as an extension, vacillates greatly by the token type. The reliability of the metric even deteriorates due to some tokenization, and **MeCab-ko** is one of its culprits. Guiding through the proper usage of the tokenizer for each metric, we stress the significance of **Kiwi** as the most reliable Korean tokenizer and the insignificance of the subword level, **Jamo (자음 & 모음)**, in MT evaluation.
 
 ---
 ### Data Set
