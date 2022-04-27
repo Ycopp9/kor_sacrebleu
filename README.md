@@ -4,7 +4,7 @@
 [<img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat-square&logo=Kakao&logoColor=black"/></a>](https://www.kakaoenterprise.com)
 <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg"/></a>
 
-This repository provides datasets and codes for MT evaluation employed in the given publication, written by **Ahrii Kim (김아리)** and **Jinhyeon Kim (김진현)** and submitted at [Preprints.org](https://www.preprints.org/manuscript/202201.0018/v1) (1st ver.) and [HumEval 2022](https://openreview.net/forum?id=BWVeZdViVW5&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2022%2FWorkshop%2FHumEval%2FAuthors%23your-submissions)) ( final ver.).
+This repository provides datasets and codes for MT evaluation employed in the given publication, written by **Ahrii Kim (김아리)** and **Jinhyeon Kim (김진현)** and submitted at [Preprints.org](https://www.preprints.org/manuscript/202201.0018/v1) (1st ver.) and [HumEval 2022](https://openreview.net/forum?id=BWVeZdViVW5&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2022%2FWorkshop%2FHumEval%2FAuthors%23your-submissions)) (final ver.).
 
 
 ## Abstract
@@ -15,17 +15,17 @@ By performing meta-evaluation with manually-constructed into-Korean resources, o
 
 ## Dataset
 - Base
-    - Source Text: English from WMT 20 English III-type (2,048 sentences/61 documents)
+    - Source Text: English from WMT 20 English III-type (2,048 sentences / 61 documents)
     - Reference Text: Korean* (manually created)
     - System Translation: 4 online APIs
 - Judgment
     - Human: Direct Assessment (DA) of adequacy & fluency
     - Automatic:
         - BLEU, TER, and ChrF from [SacreBLEU](https://github.com/mjpost/sacrebleu) (Post, 2018), 
-        - [NLTK_BLEU](https://www.nltk.org/_modules/nltk/ translate/bleu_score.html) (Papineni et al., 2002), 
-        - [GLEU](https://www.nltk.org/_modules/nltk/ translate/gleu_score.html) (Wu et al., 2016), 
+        - [NLTK_BLEU](https://www.nltk.org/_modules/nltk/translate/bleu_score.html) (Papineni et al., 2002), 
+        - [GLEU](https://www.nltk.org/_modules/nltk/translate/gleu_score.html) (Wu et al., 2016), 
         - [RIBES](http://www.kecl.ntt.co.jp/icl/lirg/ribes/index.html) (Isozaki et al., 2010), 
-        - [NIST](https://www.nist.gov/itl/iad/mig/ metrics-machine-translation-evaluation/), 
+        - [NIST](https://www.nist.gov/itl/iad/mig/metrics-machine-translation-evaluation/), 
         - [EED](https://github.com/trotacodigos/ExtendedEditDistance) (Wang et al., 2016) 
         - [CharacTER](https://github.com/trotacodigos/CharacTER) (Stanchev et al., 2019)   
     *_For legal issue, a sample of the reference set is publicly available._
@@ -97,6 +97,18 @@ $ python3 ./tool/metric/CharacTER/CharacTER.py \
                 -o data/hyp_example.txt
 ```
 
+## To regenerate figures
+The regeneration of the figures of our paper is with the code given below. The options are to choose either the `segment` or `corpus` level and to save the images using `--save`.
+
+
+```sh
+!python3 tool/draw_graph.py 'corpus' --save .
+```
+
+## To compute time
+```sh
+!bash tool/tokenizer.sh data/sample tsv "Ref Hyp" "Kkma Hannanum Okt Komoran Mecab Khaiii Kiwi Spm Syllable CV"
+```
 
 ## Citation
     @inproceedings{kor-sacrebleu22,
