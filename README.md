@@ -8,7 +8,7 @@ This repository provides datasets and codes for MT evaluation employed in the gi
 
 
 ## Abstract
-SacreBLEU, by incorporating a text normalizing step in the pipeline, has become a rising automatic evaluation metric in recent MT studies. With agglutinative languages such as Korean, however, the lexical-level metric cannot provide a conceivable result without a customized pre-tokenization. This paper endeavors to examine the influence of diversified tokenization schemes –word, morpheme, subword, charac- ter, and consonants & vowels (CV)– on the metric after its protective layer is peeled off.
+SacreBLEU, by incorporating a text normalizing step in the pipeline, has become a rising automatic evaluation metric in recent MT studies. With agglutinative languages such as Korean, however, the lexical-level metric cannot provide a conceivable result without a customized pre-tokenization. This paper endeavors to examine the influence of diversified tokenization schemes –word, morpheme, subword, character, and consonants & vowels (CV)– on the metric after its protective layer is peeled off.
 
 By performing meta-evaluation with manually-constructed into-Korean resources, our empirical study demonstrates that the human correlation of the surface-based metric and other homogeneous ones (as an extension) vacillates greatly by the token type. Moreover, the human correlation of the metric often deteriorates due to some tokenization, with CV one of its culprits. Guiding through the proper usage of tokenizers for the given metric, we discover i) the feasibility of the character tokens and ii) the deficit of CV in the Korean MT evaluation.
 
@@ -44,27 +44,7 @@ By performing meta-evaluation with manually-constructed into-Korean resources, o
     - [Jamo](https://pypi.org/project/jamo/)
 
 
-The implementation of the given tokenizers:
-```sh
-from tool.tokenizer import *
-
-# the morpheme level
-mecab = koNLPy.KoNLPy('mecab') # one of the five
-kiwi = kakao.Kiwi()
-khaiii = kakao.Khaiii()
-
-# the character level
-char = base.Character()
-
-# the subword level
-spm = subword.SPM()
-
-# the CV level
-jamo = cv.Jamo(jamo_split=True)
-```
-
-
-#### Examplary Tokens
+### Examplary Tokens
 
 ![table1](./img/table1.png)
 
@@ -81,9 +61,14 @@ jamo = cv.Jamo(jamo_split=True)
 |CV|`['ㅁ', 'ㅗ', 'ㄷ', 'ㅔ', 'ㄹ', ' ', 'ㄹ', 'ㅔ', 'ㅇ', 'ㅗ', 'ㅇ', ' ', 'ㄷ', 'ㅔ', 'ㅇ', 'ㅣ', 'ㅁ', 'ㅇ', 'ㅡ', 'ㄴ', ' ', 'ㅇ', 'ㅏ', 'ㅈ', 'ㅣ', 'ㄱ', ' ', 'ㄱ', 'ㅡ', ' ', 'ㄴ', 'ㅜ', 'ㄱ', 'ㅜ', 'ㄷ', 'ㅗ', ' ', 'ㅅ', 'ㅣ', 'ㄷ', 'ㅗ', 'ㅎ', 'ㅏ', 'ㄴ', ' ', 'ㅈ', 'ㅓ', 'ㄱ', ' ', 'ㅇ', 'ㅓ', 'ㅄ', 'ㄴ', 'ㅡ', 'ㄴ', ' ', 'ㅂ', 'ㅏ', 'ㅇ', 'ㅅ', 'ㅣ', 'ㄱ', 'ㅇ', 'ㅡ', 'ㄹ', 'ㅗ', ' ', 'ㅋ', 'ㅐ', 'ㅅ', 'ㅇ', 'ㅝ', 'ㅋ', 'ㅡ', 'ㄹ', 'ㅡ', 'ㄹ', ' ', 'ㅎ', 'ㅘ', 'ㄹ', 'ㅂ', 'ㅗ', 'ㅎ', 'ㅐ', 'ㅆ', 'ㄷ', 'ㅏ']`|
 
 
+## Tools & Results
+### Using the tools
+Before implementation, we remind you to have all tokenizers installed. To test all the tools applied for our experiment (rank clustering, bootstrap resampling, tokenized samples, and automatic metrics scores), use the following code:
+```sh
+$ python3 script.py gleu
+```
 
-## Evaluation Metrics
-The following two metrics are copied from the original libraries. You can test their scores with our example as follows:
+The given two metrics are not included in the script above, as they aer copied from the original libraries. You can test them seperately with our example with the following code:
 
 ```sh
 [EED]
@@ -97,18 +82,20 @@ $ python3 ./tool/metric/CharacTER/CharacTER.py \
                 -o data/hyp_example.txt
 ```
 
-## To regenerate figures
+### Reproducing the experiment results
 The regeneration of the figures of our paper is with the code given below. The options are to choose either the `segment` or `corpus` level and to save the images using `--save`.
-
-
 ```sh
-!python3 tool/draw_graph.py 'corpus' --save .
+$ python3 tool/draw_graph.py 'corpus' --save .
 ```
 
-## To compute time
+
+### Computing time
+You can check the time to tokenize the sample with the following code.
+
 ```sh
-!bash tool/tokenizer.sh data/sample tsv "Ref Hyp" "Kkma Hannanum Okt Komoran Mecab Khaiii Kiwi Spm Syllable CV"
+$ bash tool/tokenizer.sh data/sample tsv "Ref Hyp" "Kkma Hannanum Okt Komoran Mecab Khaiii Kiwi Spm Syllable CV"
 ```
+
 
 ## Citation
     @inproceedings{kor-sacrebleu22,
