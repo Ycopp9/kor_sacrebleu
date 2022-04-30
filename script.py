@@ -2,6 +2,7 @@ from tool import processor, correlation, resampling, score
 from tool.tokenizer import koNLPy, kakao, base, subword, cv
 from tool.metric.sacreBLEU import SacreBLEU
 from tool.metric import nltkMetric
+from tool import ver
 
 import numpy
 import pandas as pd
@@ -78,8 +79,12 @@ def parse_args():
 def main():
     args = parse_args()
     
+    #0. version info
+    print('==Version Info==')
+    ver.main()
+    
     #1. rank clustering
-    print('==Rank Cluster by Pearson by Metrics==')
+    print('\n==Rank Cluster by Pearson by Metrics==')
     ranking_cluster()
     
     #2. bootstrap sampling

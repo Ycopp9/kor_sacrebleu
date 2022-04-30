@@ -21,11 +21,11 @@ By performing meta-evaluation with manually-constructed into-Korean resources, o
 - Judgment
     - Human: Direct Assessment (DA) of adequacy & fluency
     - Automatic:
-        - BLEU, TER, and ChrF from [SacreBLEU](https://github.com/mjpost/sacrebleu) (Post, 2018), 
-        - [NLTK_BLEU](https://www.nltk.org/_modules/nltk/translate/bleu_score.html) (Papineni et al., 2002), 
-        - [GLEU](https://www.nltk.org/_modules/nltk/translate/gleu_score.html) (Wu et al., 2016), 
-        - [RIBES](http://www.kecl.ntt.co.jp/icl/lirg/ribes/index.html) (Isozaki et al., 2010), 
-        - [NIST](https://www.nist.gov/itl/iad/mig/metrics-machine-translation-evaluation/), 
+        - BLEU, TER, and ChrF from [SacreBLEU](https://github.com/mjpost/sacrebleu) (Post, 2018) 
+        - [NLTK_BLEU](https://www.nltk.org/_modules/nltk/translate/bleu_score.html) (Papineni et al., 2002) 
+        - [GLEU](https://www.nltk.org/_modules/nltk/translate/gleu_score.html) (Wu et al., 2016)
+        - [RIBES](http://www.kecl.ntt.co.jp/icl/lirg/ribes/index.html) (Isozaki et al., 2010)
+        - [NIST](https://www.nist.gov/itl/iad/mig/metrics-machine-translation-evaluation/)
         - [EED](https://github.com/trotacodigos/ExtendedEditDistance) (Wang et al., 2016) 
         - [CharacTER](https://github.com/trotacodigos/CharacTER) (Stanchev et al., 2019)   
     *_For legal issue, a sample of the reference set is publicly available._
@@ -65,6 +65,7 @@ By performing meta-evaluation with manually-constructed into-Korean resources, o
 ### Using the tools
 Before implementation, we remind you to have all tokenizers installed. To test all the tools applied for our experiment (rank clustering, bootstrap resampling, tokenized samples, and automatic metrics scores), use the following code:
 ```sh
+# for instance, metric = gleu
 $ python3 script.py gleu
 ```
 
@@ -90,7 +91,7 @@ $ python3 tool/draw_graph.py 'corpus' --save .
 
 
 ### Computing time
-You can check the time to tokenize the sample with the following code.
+You can check the time to tokenize our sample text with the following code.
 
 ```sh
 $ bash tool/tokenizer.sh data/sample tsv "Ref Hyp" "Kkma Hannanum Okt Komoran Mecab Khaiii Kiwi Spm Syllable CV"
