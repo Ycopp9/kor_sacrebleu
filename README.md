@@ -86,7 +86,7 @@ $ python3 ./tool/metric/CharacTER/CharacTER.py \
 ### Reproducing the experiment results
 The regeneration of the figures of our paper is with the code given below. The options are to choose either the `segment` or `corpus` level and to save the images using `--save`.
 ```sh
-$ python3 tool/draw_graph.py 'corpus' --save .
+$ python3 tool/draw_graph.py 'corpus'
 ```
 
 
