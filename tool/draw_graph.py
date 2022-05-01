@@ -166,7 +166,7 @@ def parse_args():
     
     parser.add_argument('level', choices=['segment', 'corpus'], help='score compute level')
     #parser.add_argument('-p', '--path', help='file path')
-    parser.add_argument('-s', '--save', type=bool, default=False, help='To save the img')
+    parser.add_argument('-s', '--save', action='store_false', help='To save the img')
     return parser.parse_args()
 
 
